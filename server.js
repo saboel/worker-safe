@@ -1,9 +1,15 @@
-const express = require('express')
+const express = require('express');
+const path = require('path');
 
+// Init App
 const app = express();
 
+// Load View Engine
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
 app.get('/', (req, res) => {
-	res.send("Team LimitelessCoders");
+	res.render("index");
 });
 
 const PORT = process.env.PORT || 5000;
