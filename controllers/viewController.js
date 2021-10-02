@@ -1,3 +1,3 @@
 exports.getIndex = (req, res, next) => {
-  res.send("LimitlessCoders");
+  res.status(200).render("index");
 };
