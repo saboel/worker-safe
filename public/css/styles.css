@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap%27');
+/* @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+#main {
+    font-family: 'Open Sans';
+}
+
+#login_div {
+    text-align: center;
+    width: 300px;
+    padding: 40px;
+    margin: 0 auto;
+}
+
+#title {
+    font-family: "Oswald";
+    color:#69C181
+}
+
+.titles_div {   
+    text-align: center;
+    padding: 70px 0;
+}
+
+
+
+.opt {
+    /* padding-bottom: 2px; */
+    padding: 10px;
+    border-radius: 5px;
+    width: 75%;
+}
+
+.form-control {
+    margin: 0 auto !important;
+}
+
+.alrt{
+    margin: 0 auto;
+    width:300px;
+    height:50px;
+}
+
+.footer {
+    /* font-family: 'Courier Prime'; */
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
