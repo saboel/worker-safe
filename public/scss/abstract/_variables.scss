@@ -1,0 +1,65 @@
+//THEME COLOR
+$primary-theme-color: #69c181;
+//HEADER COLOR
+$primary-header-color: #000;
+//FONT COLOR
+$primary-font-color: #202124;
+$secondary-font-color: #fefefe;
+//OVERLAY COLOR:
+
+//CARD COLOR:
+$primary-card-color: #ffffff;
+
+//ERROR COLOR:
+$error-background: #f8d7da;
+$error-font: #721c24;
+$error-border: #f5c6cb;
+//SUCCESS COLOR:
+$success-background: #d4edda;
+$success-font: #155724;
+$success-border: #c3e6cb;
+//WARNING COLOR:
+$warning-background: #fff3cd;
+$warning-font: #856404;
+$warning-border: #ffeeba;
+//INFO COLOR:
+$info-background: #d1ecf1;
+$info-font: #0c5460;
+$info-border: #bee5eb;
+
+//TRANSITIONS
+$general-transition: all 200ms ease-in-out;
+
+//SHADOW
+$general-boxshadow: rgba(0, 0, 0, 0.16) 0 0.5rem 1rem,
+  rgba(0, 0, 0, 0.23) 0 0.3rem 0.5rem;
+
+$hover-boxshadow: rgba(0, 0, 0, 0.16) 0 0.25rem 0.5rem,
+  rgba(0, 0, 0, 0.23) 0 0.15rem 0.25rem;
+
+//MESSAGE STYLE AND COLOR
+@mixin message_style($message_type) {
+  @if $message_type== "error" {
+    background-color: rgba($error-background, 1);
+    color: rgba($error-font, 1);
+    border-color: rgba($error-border, 1);
+  }
+
+  @if $message_type== "success" {
+    background-color: rgba($success-background, 1);
+    color: rgba($success-font, 1);
+    border-color: rgba($success-border, 1);
+  }
+
+  @if $message_type== "warning" {
+    background-color: rgba($warning-background, 1);
+    color: rgba($warning-font, 1);
+    border-color: rgba($warning-border, 1);
+  }
+
+  @if $message_type== "info" {
+    background-color: rgba($info-background, 1);
+    color: rgba($info-font, 1);
+    border-color: rgba($info-border, 1);
+  }
+}

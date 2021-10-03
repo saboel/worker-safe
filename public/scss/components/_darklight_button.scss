@@ -1,0 +1,199 @@
+@use "sass:math";
+$darklight-button-width: 8rem;
+$darklight-button-height: calc(#{math.div($darklight-button-width,2.3)});
+
+.sun,
+.moon {
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 20%;
+    transition: all 200ms ease-in-out;
+}
+
+.sun {
+    left: .2rem;
+    transition-delay: 250ms;
+
+}
+
+.moon {
+    right: .2rem;
+    transform: translateX(300%);
+    transition-delay: 250ms;
+}
+
+.cloud,
+.stars {
+    display: flex;
+    position: absolute;
+    transition: all 500ms cubic-bezier(.53, .03, .1, .87);
+
+
+}
+
+.cloud {
+    backface-visibility: hidden;
+
+    &--1 {
+        top: 25%;
+        right: 3rem;
+        width: 1rem;
+        height: 1rem;
+        transition-delay: 50ms;
+        animation: cloud_float 2000ms ease-in-out infinite;
+    }
+
+    &--2 {
+        top: 45%;
+        right: .5rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        transition-delay: 200ms;
+    }
+
+    &--3 {
+        top: 5%;
+        right: 1.5rem;
+        width: 1.1rem;
+        height: 1.1rem;
+        transition-delay: 200ms;
+    }
+}
+
+.stars {
+    &--1 {
+        top: 35%;
+        left: .2rem;
+        width: .8rem;
+        height: .8rem;
+        transition-delay: 50ms;
+        transform: translate(1000%, 300%);
+    }
+
+    &--2 {
+        top: 15%;
+        left: 2rem;
+        width: .5rem;
+        height: .5rem;
+        transition-delay: 200ms;
+        transform: translate(500%, -300%);
+
+    }
+
+    &--3 {
+        bottom: 15%;
+        left: 2.2rem;
+        width: .6rem;
+        height: .6rem;
+        transition-delay: 200ms;
+        transform: translate(1000%, 500%);
+
+    }
+}
+
+.darklight__button {
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: $darklight-button-width;
+    height: $darklight-button-height;
+    border-radius: 5rem;
+    border: .2rem solid rgba(#292929, .2);
+    box-shadow: $general-boxshadow;
+    overflow: hidden;
+    transition: all 400ms linear;
+
+    @include noSelect;
+    &:focus,
+    &:active {
+        outline: none;
+    }
+
+    &Circle {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        transition: all 200ms ease-in-out;
+        margin: .2rem;
+        z-index: 9;
+
+        &::before {
+            content: '';
+            position: relative;
+            display: flex;
+            width: calc(#{math.div($darklight-button-width,3)});
+            height: calc(#{math.div($darklight-button-width,3)});
+            border-radius: 50%;
+            box-shadow: 0rem 0rem .3rem rgba(#292929, .4);
+            transition: all 500ms ease-in-out;
+            backface-visibility: hidden;
+        }
+    }
+
+    &--active {
+        background-color: rgba(#292929, 1);
+        border-color: rgba(#fefefe, 1);
+
+        & .darklight__buttonCircle {
+
+            &::before {
+                box-shadow: 0rem 0rem .3rem rgba(#fefefe, 1);
+
+                transform: translateX(4.5rem);
+            }
+        }
+
+        & .moon {
+            transform: translateX(0rem);
+        }
+
+        & .stars {
+            transform: translate(0, 0);
+
+            &--1 {
+                transition-delay: 50ms;
+                animation: blink 5000ms ease-in-out 5000ms infinite;
+            }
+
+            &--2 {
+                top: 15%;
+                left: 2rem;
+                transition-delay: 200ms;
+                animation: blink 1000ms ease-in-out 1000ms infinite;
+            }
+
+            &--3 {
+                bottom: 15%;
+                left: 2.2rem;
+                transition-delay: 200ms;
+                animation: blink 2000ms ease-in-out 500ms infinite;
+            }
+        }
+
+        & .sun {
+            transform: translateX(-200%);
+        }
+
+        & .cloud {
+            &--1 {
+                transform: translateX(-500%);
+            }
+
+            &--2 {
+                transform: translateX(-600%);
+            }
+
+            &--3 {
+                transform: translateX(-1500%);
+            }
+        }
+    }
+
+}

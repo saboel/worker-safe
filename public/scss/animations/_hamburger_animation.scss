@@ -1,0 +1,92 @@
+@keyframes first_bar {
+    0%{
+        transform: translateY(0);
+    }
+    70%{
+        transform: translateY(.9rem);
+    }
+    80%{
+
+        transform: translateY(.9rem) rotate(0deg);
+    }
+    100%{
+        transform: translateY(.9rem) rotate(45deg);
+
+    }
+}
+@keyframes second_bar {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: .8;
+        transform: translateX(0rem);
+    }
+    80%{
+        transform: translateX(2rem);
+
+    }
+    100%{
+        opacity: 0;
+        display: none;
+    }
+}
+@keyframes third_bar {
+    0%{
+        transform: translateY(0);
+    }
+    70%{
+        transform: translateY(-.9rem) rotate(0);
+
+    }
+    100%{
+        transform: translateY(-.9rem) rotate(-45deg);
+
+    }
+}
+
+
+
+@keyframes first_bar_collapsed {
+    0%{
+        transform: translateY(.9rem) rotate(45deg);
+    }
+    70%{
+        transform: translateY(.9rem);
+    }
+    80%{
+
+        transform: translateY(.9rem) rotate(0deg);
+    }
+    100%{
+        transform: translateY(0);
+
+
+    }
+}
+@keyframes second_bar_collapsed {
+    0%{
+        opacity: 0;
+        transform: translateX(-2rem);
+        display: none;
+    }
+    100%{
+        display: flex;
+        opacity: 1;
+        transform: translateX(0rem);
+    }
+}
+@keyframes third_bar_collapsed {
+    0%{
+        transform: translateY(-.9rem) rotate(-45deg);
+
+    }
+    70%{
+        transform: translateY(-.9rem) rotate(0);
+
+    }
+    100%{
+        transform: translateY(0);
+
+    }
+}

@@ -1,0 +1,267 @@
+// switch button container
+.switch__button__container {
+  display: flex;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
+// TITLES SECTION
+
+.titles {
+  display: flex;
+  flex-direction: column;
+  @include absoluteCenter;
+  margin: 5rem 0;
+  transition: all 500ms linear;
+  backface-visibility: hidden;
+  & h1 {
+    &:first-of-type {
+      font-size: 12rem;
+      color: rgba($primary-theme-color, 1);
+      @include defaultFont;
+    }
+    &:nth-of-type(2) {
+      font-size: 5rem;
+      @include secondaryFont;
+    }
+  }
+  &--scaled {
+    animation: scaled_text 500ms linear forwards;
+  }
+}
+
+// FORM SECTION
+.verification {
+  &__card {
+    display: flex;
+    padding: 5rem;
+    border-radius: 0.8rem;
+    @include absoluteCenter;
+    background-color: transparent;
+    box-shadow: 0.2rem 0.2rem 0.6rem #bebebe, -0.2rem -0.2rem 0.6rem #ffffff;
+    &--hide {
+      animation: hide_form 1200ms ease forwards;
+    }
+  }
+  &__form {
+    padding: 2rem;
+    &__group {
+      & input {
+        @include secondaryFont;
+        padding: 0.5rem 2rem;
+        font-size: 2rem;
+        width: 40rem;
+        height: 4rem;
+        outline: none;
+        border: 0.2rem solid rgba($primary-font-color, 0.2);
+        border-radius: 0.8rem;
+        font-weight: 600;
+        box-shadow: rgba(0, 0, 0, 0.24) 0rem 0.3rem 0.8rem;
+      }
+      &:nth-of-type(2) {
+        margin-top: 2rem;
+        & button {
+          font-weight: 700;
+          letter-spacing: 0.2rem;
+          @include secondaryFont;
+          font-size: 2rem;
+          border-radius: 0.5rem;
+          width: 15rem;
+          height: 5rem;
+          background-image: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba($primary-theme-color, 0.5) 50%,
+            darken(rgba($primary-theme-color, 1), 10%) 50%
+          );
+          background-size: 220%;
+          box-shadow: rgba(0, 0, 0, 0.24) 0rem 0.3rem 0.8rem;
+
+          &:hover {
+            animation: background_slide 500ms ease-in-out forwards;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Question modal
+
+.modal {
+  display: none;
+  opacity: 0;
+  flex-direction: column;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 70%;
+  box-shadow: 0.2rem 0.2rem 0.6rem #242424, -0.2rem -0.2rem 0.6rem #ffffff;
+
+  &__header {
+    display: flex;
+    height: 5rem;
+    width: 100%;
+    justify-content: center;
+    padding: 2rem;
+    border-bottom: 0.2rem solid rgba($primary-font-color, 0.2);
+    &__indicator {
+      display: block;
+      border-radius: 50%;
+      width: 1.5rem;
+      height: 1.5rem;
+      background-color: rgba($primary-font-color, 0.2);
+      margin: 0 1rem;
+      &--active {
+        background-color: rgba($primary-theme-color, 1);
+      }
+    }
+  }
+  &__bodies {
+    position: relative;
+    perspective: 100rem;
+  }
+  &__body {
+    display: none;
+    flex-direction: column;
+    padding: 2rem;
+
+    @include secondaryFont;
+    @include absoluteCenter;
+    &__number {
+      & p {
+        font-size: 3rem;
+      }
+    }
+    &__question {
+      & p {
+        font-size: 4rem;
+      }
+    }
+    &__form {
+      display: flex;
+      flex-direction: column;
+      @include absoluteCenter;
+      & input {
+        font-size: 2rem;
+        padding: 0 1rem;
+        width: 30rem;
+        height: 4rem;
+        border-radius: 0.8rem;
+        margin: 4rem;
+        outline: none;
+        border: 0.3rem solid rgba($primary-font-color, 0.5);
+      }
+      & button {
+        @include secondaryFont;
+        font-weight: bold;
+        font-size: 2rem;
+        width: 20rem;
+        height: 5rem;
+        border-radius: 0.8rem;
+        background-color: darken(rgba($primary-theme-color, 1), 20%);
+        color: rgba($secondary-font-color, 1);
+        letter-spacing: 0.2rem;
+      }
+    }
+    &--is--showing {
+      display: flex;
+    }
+  }
+  &--shown {
+    display: flex;
+    animation: shown 1000ms ease-in-out forwards;
+  }
+}
+
+.animate-out {
+  animation: out 600ms ease-in-out forwards;
+}
+
+.animate-in {
+  animation: in 500ms ease-in-out forwards;
+  display: block;
+}
+
+.animate-up {
+  transform: translateY(-50rem) rotate(30deg);
+}
+
+// FOOTER
+
+.footer {
+  // display: flex;
+  margin-top: auto;
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  font-weight: 600;
+}
+
+//animations
+@keyframes shown {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hide_form {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+  }
+}
+@keyframes scaled_text {
+  100% {
+    transform: scale(0.5) translateY(-8em);
+    margin: 2rem;
+  }
+}
+
+@keyframes background_slide {
+  0% {
+    background-position: 0%;
+  }
+  90% {
+    background-position: 130%;
+  }
+  100% {
+    color: white;
+    background-position: 100%;
+  }
+}
+
+@keyframes out {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  60% {
+    transform: rotate(60deg);
+  }
+  100% {
+    transform: translateY(800px) rotate(10deg);
+  }
+}
+
+@keyframes in {
+  0% {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}

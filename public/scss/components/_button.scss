@@ -1,0 +1,114 @@
+@use "sass:math";
+$default-button-width: 8rem;
+$default-button-height: calc(#{math.div($default-button-width, 2.4)});
+
+.button {
+  display: flex;
+  @include absoluteCenter;
+  @include defaultFont;
+  cursor: pointer;
+  width: $default-button-width;
+  height: $default-button-height;
+  font-weight: 600;
+  border: none;
+  border-radius: 5rem;
+  letter-spacing: 0.1rem;
+  background-color: transparent;
+  transition: all 200ms ease-in-out;
+  box-shadow: $general-boxshadow;
+  backface-visibility: hidden;
+  margin: 1rem;
+  letter-spacing: 0.2rem;
+  position: relative;
+  transform-origin: center;
+  &:focus,
+  &:active {
+    outline: none;
+  }
+  &:hover {
+    transform: translateY(-0.2rem);
+  }
+  &:active {
+    transform: translateY(0rem);
+    box-shadow: $hover-boxshadow;
+    letter-spacing: 0.3rem;
+  }
+  &--submit {
+    background-color: rgba($success-background, 1);
+    color: rgba($success-font, 1);
+  }
+  &--cancel {
+    background-color: rgba($error-background, 1);
+    color: rgba($error-font, 1);
+  }
+  &--loading {
+    background-color: rgba(#080915, 0.5);
+    transition: all 200ms ease;
+    box-shadow: rgba(50, 50, 93, 0.5) 0rem 3rem 6rem -1.2rem inset,
+      rgba(0, 0, 0, 0.6) 0rem 1.8rem 3.6rem -1.8rem inset !important;
+    cursor: wait;
+    width: #{math.div($default-button-width, 2)};
+    height: #{math.div($default-button-width, 2)};
+    border-radius: 50%;
+    transition: all 300ms ease;
+    z-index: 1000;
+    &:hover,
+    &:active {
+      transform: none !important;
+    }
+    & p {
+      opacity: 0;
+      visibility: hidden;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 3rem;
+      height: 3rem;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      border: 0.3rem solid transparent;
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      animation: button-loading 800ms linear infinite;
+    }
+  }
+
+  &--loading--success {
+    background-color: rgba(#1ecd97, 1);
+    &::before {
+      content: "\2713";
+      position: absolute;
+      color: white;
+      opacity: 0;
+      animation: display-sign 300ms 400ms ease-in-out forwards;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+    &::after {
+      animation: scale 400ms ease-in-out forwards;
+    }
+  }
+  &--loading--error {
+    background-color: lighten(rgba(#d62727, 1), 10%);
+    &::before {
+      content: "\2718";
+      position: absolute;
+      color: white;
+      opacity: 0;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      animation: display-sign 300ms 400ms ease-in-out forwards;
+    }
+    &::after {
+      animation: scale 400ms ease-in-out forwards;
+    }
+  }
+}

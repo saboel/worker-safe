@@ -1,0 +1,50 @@
+.message {
+    display: none;
+    @include absoluteCenter;
+    @include secondaryFont;
+    height: 4rem;
+    font-size: 2rem;
+    font-weight: 800;
+    border: .2rem solid;
+    margin: 1rem 0;
+    border-radius: .5rem;
+    padding: 0 1rem;
+    position: absolute;
+    left: 50%;
+    top: 2%;
+    transform: translate(-50%,-50%);
+    transition: all 200ms linear;
+    opacity: 0;
+    z-index: 10000;
+    &--shown{
+        display: flex;
+        animation: shown 300ms ease-in-out forwards;
+    }
+    &--disappear{
+        animation: disappear 300ms ease-in-out forwards;
+    }
+    & strong {
+        text-transform: capitalize;
+        letter-spacing: .05rem;
+        font-weight: 1000 !important;
+    }
+
+    &--error {
+        @include message_style(error);
+    }
+
+    &--success {
+        @include message_style(success);
+
+    }
+
+    &--warning {
+        @include message_style(warning);
+
+    }
+
+    &--info {
+        @include message_style(info);
+
+    }
+}

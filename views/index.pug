@@ -1,1 +1,27 @@
-h1 Team LimitlessCreators
+extends base
+
+block content 
+
+    body
+        div(class="wrapper")
+            div(class="loader" id="loader")
+                div(class="loader__container")
+                    div(class="loader--outter")
+                    div(class="loader--inner")
+            div(class="switch__button__container")
+                button(class="darklight__button" id="darklight__button" aria-label="Switch to dark mode")
+            div(class="titles")
+                h1(class="display-1") Worker-Safe
+                h1(class="display-6") by LimitlessCreators
+            div(class="card verification__card" id="login_div")
+                form(id="verification__form")
+                    div(class="verification__form__group")
+                        input(type="text" placeholder="Enter Your ID to Start Safety Check" id="employee__input")
+                    div(class="verification__form__group")
+                        button(class="btn verification__form__submit__button" id="find__employee__btn") Submit
+            div(class="modal")
+
+
+            include _footer
+
+
