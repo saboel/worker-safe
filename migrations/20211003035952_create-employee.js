@@ -29,7 +29,8 @@ exports.up = function(knex) {
          .references("id")
          .inTable("questions")
          .onUpdate("CASCADE")
-         .onDelete("CASCADE");
+         .onDelete("CASCADE")
+         .notNullable();
     table.timestamps(true, true);
   });
 };
