@@ -99,7 +99,6 @@
   transform: translate(-50%, -50%);
   width: 60%;
   height: 70%;
-  box-shadow: 0.2rem 0.2rem 0.6rem #242424, -0.2rem -0.2rem 0.6rem #ffffff;
 
   &__header {
     display: flex;
@@ -107,7 +106,10 @@
     width: 100%;
     justify-content: center;
     padding: 2rem;
+    border: 0.2rem solid rgba($primary-font-color, 0.8);
     border-bottom: 0.2rem solid rgba($primary-font-color, 0.2);
+    position: relative;
+
     &__indicator {
       display: block;
       border-radius: 50%;
@@ -115,6 +117,8 @@
       height: 1.5rem;
       background-color: rgba($primary-font-color, 0.2);
       margin: 0 1rem;
+      box-shadow: rgba(#fefefe, 0.24) 0rem 0.3rem 0.8rem;
+
       &--active {
         background-color: rgba($primary-theme-color, 1);
       }
@@ -128,9 +132,12 @@
     display: none;
     flex-direction: column;
     padding: 2rem;
-
+    transform-origin: top left;
+    box-shadow: rgba(0, 0, 0, 0.24) 0rem 0.3rem 0.8rem;
+    border: 0.2rem solid rgba($primary-font-color, 0.8);
     @include secondaryFont;
     @include absoluteCenter;
+
     &__number {
       & p {
         font-size: 3rem;
@@ -153,7 +160,7 @@
         border-radius: 0.8rem;
         margin: 4rem;
         outline: none;
-        border: 0.3rem solid rgba($primary-font-color, 0.5);
+        border: 0.3rem solid rgba($primary-font-color, 0.8);
       }
       & button {
         @include secondaryFont;
@@ -175,8 +182,15 @@
     display: flex;
     animation: shown 1000ms ease-in-out forwards;
   }
+  &--hide {
+    animation: hide 1000ms linear forwards;
+  }
 }
-
+.safeness__result {
+  display: flex;
+  flex-direction: column;
+  @include absoluteCenter;
+}
 .animate-out {
   animation: out 600ms ease-in-out forwards;
 }
@@ -207,6 +221,14 @@
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 

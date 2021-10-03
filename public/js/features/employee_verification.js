@@ -51,12 +51,10 @@ export const employeeVerificationHandler = (employeeID) => {
     const question = questions.filter(
       (ques) => ques.department === employee_found.department
     );
-    displayAlert("Successfully found employee", "success", 3);
-
+    displayAlert("Successfully Employee Found", "success", 3);
     questionnaire(question);
-
     return;
   } else {
-    displayAlert("could not find em ID ", "error", 3);
+    displayAlert("Employee with this ID does NOT exist", "error", 3);
   }
 };

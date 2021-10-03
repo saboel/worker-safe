@@ -1,60 +1,62 @@
 $progress-width: 40rem;
-$progress-height: 1.8rem;
+$progress-height: 4rem;
 
 .progress {
-    display: flex;
-    width: $progress-width;
-    height: $progress-height;
-    padding: .3rem ;
-    margin: .5rem;
-    border-radius: 2.5rem;
-    background-color: rgba(#555, 1);
-    box-shadow: inset 0 -.1rem .1rem #ffffff4d;
+  display: flex;
+  width: $progress-width;
+  height: $progress-height;
+  padding: 0.3rem;
+  margin: 0.5rem;
+  border-radius: 2.5rem;
+  background-color: rgba(#555, 1);
+  box-shadow: inset 0 -0.1rem 0.1rem #ffffff4d;
 
-    &--red>.progress__bar {
-        background-color: rgba(#f42323, 1);
-        background-image: linear-gradient( to right right,#f0a3a3, #f42323);
-    }
+  &--red > .progress__bar {
+    background-color: rgba(#f42323, 1);
+    background-image: linear-gradient(to right right, #f0a3a3, #f42323);
+  }
 
-    &--green>.progress__bar {
-        background-color: rgb(43, 194, 83);
-        background-image: linear-gradient( to right right,#2bc253 37%,
-                #54f054 69%);
-    }
+  &--green > .progress__bar {
+    background-color: rgb(43, 194, 83);
+    background-image: linear-gradient(to right right, #2bc253 37%, #54f054 69%);
+  }
 
-    &--blue>.progress__bar {
-        background-color: rgba(#0892D0, 1);
-        background-image: linear-gradient( to right bottom,
-                rgba(#0892D0, 1) 37%,
-                rgba(#0892D0, 1) 69%);
-    }
+  &--blue > .progress__bar {
+    background-color: rgba(#0892d0, 1);
+    background-image: linear-gradient(
+      to right bottom,
+      rgba(#0892d0, 1) 37%,
+      rgba(#0892d0, 1) 69%
+    );
+  }
 
-    &--orange>.progress__bar {
-        background-color: rgba(#f36d0a, 1);
-        background-image: linear-gradient( #f1a165, #f36d0a);
-    }
+  &--orange > .progress__bar {
+    background-color: rgba(#f36d0a, 1);
+    background-image: linear-gradient(#f1a165, #f36d0a);
+  }
 
-    &__bar {
-        display: block;
-        position: relative;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        height: $progress-height -.1rem;
-        border-top-right-radius: .8rem;
-        border-bottom-right-radius: .8rem;
-        border-top-left-radius: 2rem;
-        border-bottom-left-radius: 2rem;
-        box-shadow: inset 0 .1rem .4rem rgba(255, 255, 255, 0.3),
-            inset 0 -.1rem .3rem rgba(0, 0, 0, 0.4);
-        overflow: hidden;
-        transition: all 200ms ease;
-    }
+  &__bar {
+    display: block;
+    position: relative;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: $progress-height -0.1rem;
+    border-top-right-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    box-shadow: inset 0 0.1rem 0.4rem rgba(255, 255, 255, 0.3),
+      inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    transition: all 200ms ease;
+  }
 
-    &__value {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: rgba($secondary-font-color, 1);
-        @include noSelect;
-    }
+  &__value {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgba($secondary-font-color, 1);
+    @include noSelect;
+  }
 }

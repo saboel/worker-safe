@@ -307,7 +307,7 @@
 .progress {
   display: flex;
   width: 40rem;
-  height: 1.8rem;
+  height: 4rem;
   padding: 0.3rem;
   margin: 0.5rem;
   border-radius: 2.5rem;
@@ -336,7 +336,7 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  height: 1.8rem -0.1rem;
+  height: 4rem -0.1rem;
   border-top-right-radius: 0.8rem;
   border-bottom-right-radius: 0.8rem;
   border-top-left-radius: 2rem;
@@ -346,7 +346,8 @@
   transition: all 200ms ease;
 }
 .progress__value {
-  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #fefefe;
   -webkit-touch-callout: none;
@@ -762,7 +763,6 @@ a[disabled] {
   transform: translate(-50%, -50%);
   width: 60%;
   height: 70%;
-  box-shadow: 0.2rem 0.2rem 0.6rem #242424, -0.2rem -0.2rem 0.6rem #ffffff;
 }
 .modal__header {
   display: flex;
@@ -770,7 +770,9 @@ a[disabled] {
   width: 100%;
   justify-content: center;
   padding: 2rem;
+  border: 0.2rem solid rgba(32, 33, 36, 0.8);
   border-bottom: 0.2rem solid rgba(32, 33, 36, 0.2);
+  position: relative;
 }
 .modal__header__indicator {
   display: block;
@@ -779,6 +781,7 @@ a[disabled] {
   height: 1.5rem;
   background-color: rgba(32, 33, 36, 0.2);
   margin: 0 1rem;
+  box-shadow: rgba(254, 254, 254, 0.24) 0rem 0.3rem 0.8rem;
 }
 .modal__header__indicator--active {
   background-color: #69c181;
@@ -791,6 +794,9 @@ a[disabled] {
   display: none;
   flex-direction: column;
   padding: 2rem;
+  transform-origin: top left;
+  box-shadow: rgba(0, 0, 0, 0.24) 0rem 0.3rem 0.8rem;
+  border: 0.2rem solid rgba(32, 33, 36, 0.8);
   font-family: "Open Sans";
   justify-content: center;
   align-items: center;
@@ -817,7 +823,7 @@ a[disabled] {
   border-radius: 0.8rem;
   margin: 4rem;
   outline: none;
-  border: 0.3rem solid rgba(32, 33, 36, 0.5);
+  border: 0.3rem solid rgba(32, 33, 36, 0.8);
 }
 .modal__body__form button {
   font-family: "Open Sans";
@@ -836,6 +842,17 @@ a[disabled] {
 .modal--shown {
   display: flex;
   animation: shown 1000ms ease-in-out forwards;
+}
+.modal--hide {
+  animation: hide 1000ms linear forwards;
+}
+
+.safeness__result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .animate-out {
@@ -864,6 +881,14 @@ a[disabled] {
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 @keyframes hide_form {
